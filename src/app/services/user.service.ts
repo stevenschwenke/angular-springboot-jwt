@@ -13,7 +13,11 @@ export class UserService {
   }
 
   login(accessToken: string) {
+
+    console.log('encoded token:');
+    console.log(accessToken);
     const decodedToken = this.jwtHelper.decodeToken(accessToken);
+    console.log('decoded token:');
     console.log(decodedToken);
 
     this.isAdmin = decodedToken.authorities.some(el => el === 'ADMIN_USER');
